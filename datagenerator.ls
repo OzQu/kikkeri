@@ -1,10 +1,12 @@
 require! 'mongoose'
 require! 'moment'
+{ argv } = require 'optimist'
 
 { Game }= require '../schema'
 { map } = require 'prelude-ls'
 
-gamesPlayed = 5000
+gamesPlayed = argv.games || 1000
+type = argv.type || 'basic'
 mockNames = ['Oskari' 'Teemu' 'Niko' 'Tapio' 'Seppo']
 
 mongodb_uri = process.env.MONGODB_URI || 'mongodb://localhost/kikkeri'

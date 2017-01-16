@@ -2,6 +2,7 @@ var gulp = require('gulp');
 var gulpLiveScript = require('gulp-livescript');
 var nodemon = require('gulp-nodemon');
 var sass = require('gulp-sass');
+var argv = require('optimist').argv;
 
 gulp.task('default', ['build']);
 
@@ -44,6 +45,7 @@ gulp.task('generate', ['ls-tools'], function() {
     script: 'build/tools/datagenerator.js',
     ext: 'js',
     env: {'NODE_ENV': 'development'},
+    args: ['--games='+argv.games, '--type='+argv.type]
   });
   stream.on('exit', function() {
     process.exit();
