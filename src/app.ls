@@ -8,19 +8,11 @@ require! './config'
 require! './table-view'
 require! './tournament'
 require! './ranking'
+require! './schema'
 
 {empty, concat, filter, any, all, map} = require 'prelude-ls'
 
-gameSchema = mongoose.Schema {
-  teams: [{
-    players: [String]
-    score: Number
-  }]
-  timestamp: Date
-  tags: [String]
-}
-
-Game = mongoose.model 'Game', gameSchema
+Game = schema.Game
 
 latestTags = (n, cb) ->
   pipeline = [
