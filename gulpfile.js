@@ -45,7 +45,7 @@ gulp.task('generate', ['ls-tools'], function() {
     script: 'build/tools/datagenerator.js',
     ext: 'js',
     env: {'NODE_ENV': 'development'},
-    args: ['--games='+argv.games, '--type='+argv.type]
+    args: ['--games='+argv.games, '--type='+argv.type, '--years='+argv.years]
   });
   stream.on('exit', function() {
     process.exit();
