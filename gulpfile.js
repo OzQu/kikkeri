@@ -21,7 +21,7 @@ gulp.task('ls-client', function() {
 });
 
 gulp.task('ls-tools', function() {
-  return gulp.src('./datagenerator.ls')
+  return gulp.src('./tools/datagenerator.ls')
     .pipe(gulpLiveScript({bare: true}))
     .pipe(gulp.dest('build/tools'));
 });
@@ -45,7 +45,10 @@ gulp.task('generate', ['ls-tools'], function() {
     script: 'build/tools/datagenerator.js',
     ext: 'js',
     env: {'NODE_ENV': 'development'},
-    args: ['--games='+argv.games, '--type='+argv.type, '--years='+argv.years]
+    args: ['--games='+argv.games,
+      '--scorespread='+argv.scorespread,
+      '--gamesspread='+argv.gamesspread,
+      '--years='+argv.years]
   });
   stream.on('exit', function() {
     process.exit();
