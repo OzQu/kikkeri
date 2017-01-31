@@ -10,6 +10,12 @@ form#criteria.pure-form.pure-form-aligned(method='get' action='.')
       label(for=numPlayers) Pelaajien lukumäärä
       input#numPlayers.pure-input-2-3(placeholder='mikä tahansa', type='number' name='numPlayers' value=query.numPlayers)
     div.pure-control-group
+      label(for=limit) Näytä pelejä yhteensä
+      input#limit.pure-input-2-3(placeholder='pelien lukumäärä', type='number', name='limit' value=query.limit)
+    //div.pure-control-group
+    //  label(for=minumumGames) Pelattuja pelejä minimissään pelaajilla
+    //  input#minumumGames.pure-input-2-3(placeholder='pelien lukumäärä', type='number', name='minumumGames' value=query.minumumGame)
+    div.pure-control-group
       label(for=since) Alkupäivämäärä
       input#since.pure-input-2-3(placeholder='yyyy-mm-dd' type='date' name='since' value=query.since)
     div.pure-control-group
